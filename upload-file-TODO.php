@@ -1,5 +1,13 @@
 <?php 
-// @TODO
+$message = '';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  if ($_FILES['image']['error'] === 0) {
+    $message = '<b>File:</b>' . $_FILES['image']['name'] . '<br>';
+    $message .= '<b>Size:</b>' . $_FILES['image']['size'] . 'bytes';
+  } else {
+    $message = 'File could not be uploaded.';
+  }
+}
 ?>
 <?php include 'includes/header.php' ?>
 
